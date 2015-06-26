@@ -37,23 +37,13 @@ slide.prototype = {
 		this.container.style.webkitTransform = 'translate3d(0,0,0)';
 	},
 	bindEvent: function() {
-		var self = this,
-			touchstart = function(e) {
-				self.touchstart.call(self, e, self);
-			},
-			touchmove = function(e) {
-				self.touchmove.call(self, e, self);
-			},
-			touchend = function(e) {
-				self.touchend.call(self, e, self);
-			}
-
-		this.container.addEventListener('touchstart', touchstart, false);
-		this.container.addEventListener('touchmove', touchmove, false);
-		this.container.addEventListener('touchend', touchend, false);
-		this.container.addEventListener('touchcancel', touchend, false);
+		var self = this;
+			
+		this.container.addEventListener('touchstart', this, false);
+		this.container.addEventListener('touchmove', this, false);
+		this.container.addEventListener('touchend', this, false);
+		this.container.addEventListener('touchcancel', this, false);
 		this.container.addEventListener('webkitTransitionEnd', function(){
-			console.log("hello!!");
 		}, false);
 
 		window.onresize=function(){
@@ -69,27 +59,41 @@ slide.prototype = {
 		}
 
 	},
-	touchstart: function(e, obj) {
-		obj.startPos.x = e.touches[0].pageX;
-		obj.startPos.y = e.touches[0].pageY;
-		obj.startPos.stime=new Date();
-		obj.container.style.webkitTransition = '-webkit-transform 0s ease-out';
+	handleEvent:function(e){
+		switch (e.type){
+			case 'touchstart':
+				this.touchstart(e);
+				break;
+			case 'touchmove':
+				this.touchmove(e);
+				break;
+			case 'touchend':
+				this.touchend(e);
+				break;
+		}
+
 	},
-	touchmove: function(e, obj) {
+	touchstart: function(e) {
+		this.startPos.x = e.touches[0].pageX;
+		this.startPos.y = e.touches[0].pageY;
+		this.startPos.stime=new Date();
+		this.container.style.webkitTransition = '-webkit-transform 0s ease-out';
+	},
+	touchmove: function(e) {
 		e.preventDefault();
 		var x = e.targetTouches[0].pageX,
 			y = e.targetTouches[0].pageY;
-		obj.moveDes.x = x - obj.startPos.x;
-		var	left = -obj.width * obj.index + obj.moveDes.x;
+		this.moveDes.x = x - this.startPos.x;
+		var	left = -this.width * this.index + this.moveDes.x;
 
-		obj.container.style.webkitTransform = 'translate3d(' + left + 'px,0,0)';
+		this.container.style.webkitTransform = 'translate3d(' + left + 'px,0,0)';
 	},
-	touchend: function(e, obj) {
-		obj.getCurrent();
+	touchend: function(e) {
+		this.getCurrent();
 		
-		obj._next.call(obj,'');
+		this._next.call(this,'');
 
-		obj.setTrriger.call(obj,'');
+		this.setTrriger.call(this,'');
 	},
 	getCurrent: function() {
 		var self = this,
