@@ -84,6 +84,7 @@ slide.prototype = {
 		var x = e.targetTouches[0].pageX,
 			y = e.targetTouches[0].pageY;
 		this.moveDes.x = x - this.startPos.x;
+		/*计算欢动到左边的距离*/
 		var	left = -this.width * this.index + this.moveDes.x;
 
 		this.container.style.webkitTransform = 'translate3d(' + left + 'px,0,0)';
