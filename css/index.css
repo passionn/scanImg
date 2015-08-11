@@ -1,0 +1,62 @@
+/*css reset*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video { margin: 0; padding: 0; border: 0; font: inherit; font-size: 100%; vertical-align: baseline;}
+html { line-height: 1;}
+ol, ul { list-style: none;}
+table { border-collapse: collapse;border-spacing: 0;}
+caption, th, td { text-align: left; font-weight: normal;vertical-align: middle;}
+q, blockquote {quotes: none;}
+q:before, q:after, blockquote:before, blockquote:after {content: "";content: none;}
+a img {border: none;}
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+body{font-family:"Helvetica Neue", Helvetica, Tahoma, sans-serif;background:#f0f0f0;}
+
+header{background:#f5f5f5;height:34px;box-shadow: 0 0 4px 4px #dcdcdc;text-align: center;font-size: 16px;color:#666666;line-height: 34px;}
+.content{padding:10px;}
+.content section{background:#ffffff;padding:8px;margin-bottom: 16px;}
+.content section p{color: #333333;font-size:16px;line-height: 18px; }
+.content .img_list{margin:5px 0;display: block;}
+.s_wrap {overflow: hidden;}
+.content .date{float:left;font-size: 12px;color:#cccccc;line-height: 16px;}
+.content .date:before, .content .love:before, .content .share:before{display: block;content: "";width:15px;height:15px;float:left;margin-right:4px; background:url(../images/icons.png);background-size: 15px;}
+.content .date:before{}
+.content .love:before{background-position: 0 -27px;}
+.content .share:before{background-position: 0 -71px;}
+.content .love{float:right;margin-right:20px;font-size: 14px;color:#999999;line-height: 16px; }
+.content .share{float:right;font-size: 14px;color:#999999;line-height: 16px;}
+
+#wrap{width:100%;height:100%;position:absolute;overflow: hidden; z-index: 100;}
+#wrap li{position: relative;}
+#wrap .islider-outer li div{position:relative;width:100%;height: 100%;display: flex;align-items:center;justify-content:center; }
+#wrap li p{position:absolute;bottom: 0;background:#000;opacity: 0.8;color:#fff;font-size: 14px;line-height: 18px;padding:10px 7px 50px;width: 100%;z-index: 10;box-sizing:border-box;}
+#wrap .islider-outer li{position: absolute;top:0;left:0;}
+
+.sharewrap{position: fixed;bottom: 0;background:#f3f3f3;padding:20px;width:100%;box-sizing:border-box;display: none;}
+.sharewrap ul{display: flex;margin-bottom: 10px;}
+.sharewrap li{flex:1; font-size: 12px;text-align: center; }
+.sharewrap li a{display: block;width:50px;height:50px;border-radius: 50%;background:#fff url(../images/icons1.png) no-repeat;background-size: 30px;background-position: 10px 10px;margin: 0 auto;margin-bottom: 5px;}
+.sharewrap li .friendcircle{}
+.sharewrap .weichat a{background-position: 10px -50px;}
+.sharewrap .sina a{background-position: 10px -110px;}
+.sharewrap .qqzone a{background-position: 10px -170px;}
+.sharewrap .qqfriend a{background-position: 10px -230px;}
+.sharewrap .renren a{background-position: 10px -290px;}
+.esc{display: block;border:1px solid #cccccc;background:#ffffff;text-align: center;height:35px;line-height: 35px;text-decoration: none;color:#333333;}
+
+.show{display: block;}
+.pagenum{position:absolute;width:100%;height:34px;background:#131313;color:#ffffff;font-size: 16px;line-height: 32px;z-index: 101;text-align: center;}
+.pagenum a{float:right;width:16px;height:16px;background:url(../images/icons.png) no-repeat 0 -97px;background-size: 15px;margin: 8px;}
+.pagenum{display: none;}
