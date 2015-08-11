@@ -1,2 +1,2 @@
 ## Usage
-toucheslide 手机端，幻灯片
+浏览图片插件
